@@ -453,8 +453,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a6ce872341f6d949859efa51991acea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 2
-  ranges: {x: 20, y: 12, z: 20}
 --- !u!1 &476208024
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,11 +483,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fa8df5bbc72a6549a6168b784270889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
-  - name: rotateLeft
-    clip: {fileID: 8300000, guid: 954906f5e55ce60479a7c1deab84139d, type: 3}
-  - name: rotateRight
-    clip: {fileID: 8300000, guid: 476eb846ecc806c418fe0bec9de12eae, type: 3}
 --- !u!4 &476208026
 Transform:
   m_ObjectHideFlags: 0
@@ -1210,8 +1203,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e55162a7a2259d46b7ccc9be94d348e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationDuration: 0.6
-  isRotating: 0
 --- !u!1 &1752382789
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,8 +1231,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 1, g: 0.9756658, b: 0, a: 1}
+  m_Intensity: 0.2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
