@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5788139304358206198}
   - component: {fileID: 4916764926718499913}
   - component: {fileID: 428354594200412053}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: SpaceWalk
   m_TagString: LevelBlock
   m_Icon: {fileID: 0}
@@ -118,6 +118,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a5bea87d5abf043a2b120276048abb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  possiblePaths: []
+  previousBlock: {fileID: 0}
   isSlope: 0
+  movable: 0
+  isButton: 0
+  isGoal: 0
   walkPointOffset: 0.5
   slopeOffset: 0.4

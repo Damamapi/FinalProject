@@ -746,7 +746,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2269650497340922350, guid: 052bb85198bc0f945a24d3d23033f930, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 1573738812}
   m_SourcePrefab: {fileID: 100100000, guid: 052bb85198bc0f945a24d3d23033f930, type: 3}
 --- !u!1001 &802893477
 PrefabInstance:
@@ -1104,6 +1107,27 @@ MonoBehaviour:
   clickedCube: {fileID: 0}
   indicator: {fileID: 0}
   finalPath: []
+--- !u!1 &1573738805 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2269650497340922350, guid: 052bb85198bc0f945a24d3d23033f930, type: 3}
+  m_PrefabInstance: {fileID: 718376412}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1573738812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573738805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a2c9d9e599abd74e93fbc578d5a2e4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkableLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  raycastDirections: 00000101
 --- !u!43 &1693061298
 Mesh:
   m_ObjectHideFlags: 0
