@@ -57,7 +57,7 @@ public class LevelSetupAnimation : MonoBehaviour
 
         float offsetX = 0f, offsetY = 0f, offsetZ = 0f;
 
-        // outsiderangerandom:
+        // outsideRangeRandom:
         // Random.Range(0, 1) < 0.5f ? Random.Range(-ranges.z - ranges.z / 10, -ranges.z) : Random.Range(ranges.z, ranges.z + ranges.z / 10);
 
         if (axis == 0)  // X-axis

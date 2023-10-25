@@ -15,9 +15,9 @@ public class Walkable : MonoBehaviour
 
     [Header("Booleans")]
     public bool isSlope = false;
-    public bool movingGround = false;
+    public bool movable = false;
     public bool isButton;
-    public bool dontRotate;
+    public bool isGoal;
 
     [Space]
 
@@ -45,7 +45,7 @@ public class Walkable : MonoBehaviour
         {
             if (p.target == null)
                 return;
-            Gizmos.color = p.active ? Color.black : Color.clear;
+            Gizmos.color = p.active ? Color.red : Color.clear;
             Gizmos.DrawLine(GetWalkPoint(), p.target.GetComponent<Walkable>().GetWalkPoint());
         }
     }
