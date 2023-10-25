@@ -10,4 +10,8 @@ public class InputControl : MonoBehaviour
     {
         IsInputAllowed = true;
     }
+    public static void DisableInput()
+    {
+        IsInputAllowed = false;
+    }
 }

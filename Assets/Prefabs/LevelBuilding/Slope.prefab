@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 30335325531289025}
   - component: {fileID: 2609438259942312507}
   - component: {fileID: 9058945306920893064}
+  - component: {fileID: 4377539400410489991}
   m_Layer: 7
   m_Name: Slope
   m_TagString: LevelBlock
@@ -316,3 +317,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &4377539400410489991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6063604165313144308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64a5bea87d5abf043a2b120276048abb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSlope: 1
+  walkPointOffset: 0.5
+  slopeOffset: 0.4
