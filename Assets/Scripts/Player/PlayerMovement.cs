@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (currentCube.GetComponent<Walkable>().movable)
         {
-            transform.parent = currentCube.parent;
+            transform.parent = currentCube;
         }
         else
         {
