@@ -302,7 +302,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6063604165313144308}
-  m_Material: {fileID: 13400000, guid: 83356ea14d6755c41be180f4017e7641, type: 2}
+  m_Material: {fileID: 13400000, guid: 0f0454cc02deffc4da3cffcf1de23071, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -329,6 +329,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a5bea87d5abf043a2b120276048abb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  possiblePaths:
+  - target: {fileID: 0}
+    active: 1
+  - target: {fileID: 0}
+    active: 1
+  previousBlock: {fileID: 0}
   isSlope: 1
+  movable: 0
+  isButton: 0
+  isGoal: 0
   walkPointOffset: 0.5
   slopeOffset: 0.4

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4371628734018339969}
   - component: {fileID: 5182299371716949626}
   - component: {fileID: 3966760264803426525}
+  - component: {fileID: 1336218301710146156}
   m_Layer: 7
   m_Name: Goal
   m_TagString: LevelBlock
@@ -62,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d6e7475a477721949a7fa2353ffb7e32, type: 2}
+  - {fileID: 2100000, guid: 912e20b258c53444eb779e0a8a50abfc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -105,3 +106,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1336218301710146156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8344156440740641206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64a5bea87d5abf043a2b120276048abb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possiblePaths:
+  - target: {fileID: 0}
+    active: 1
+  previousBlock: {fileID: 0}
+  isSlope: 0
+  movable: 0
+  isButton: 0
+  isGoal: 0
+  walkPointOffset: 0.5
+  slopeOffset: 0.4
