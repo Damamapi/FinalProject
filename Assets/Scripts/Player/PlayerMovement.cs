@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform parent;
     public Transform currentCube;
     public Transform clickedCube;
-    public Transform indicator;
+    public Transform clickParticleParent;
 
     [Space]
 
@@ -49,21 +49,25 @@ public class PlayerMovement : MonoBehaviour
                 if(mouseHit.transform.GetComponent<Walkable>() != null) 
                 {
                     clickedCube = mouseHit.transform;
+                    PlayParticles(mouseHit.transform.GetComponent<Walkable>().GetWalkPoint() + Vector3.up * 10 + Vector3.right * 10 + Vector3.forward * 10);
 
                     DOTween.Kill(gameObject.transform);
                     finalPath.Clear();
                     FindPath();
 
-                    // blend = transform.position.y - clickedCube.position.y > 0 ? -1 : 1;
-
-                    indicator.position = mouseHit.transform.GetComponent<Walkable>().GetWalkPoint();
-                    Sequence s = DOTween.Sequence();
-                    s.AppendCallback(() => indicator.GetComponentInChildren<ParticleSystem>().Play());
-                    s.Append(indicator.GetComponent<Renderer>().material.DOColor(Color.white, .1f));
-                    s.Append(indicator.GetComponent<Renderer>().material.DOColor(Color.black, .3f).SetDelay(.2f));
-                    s.Append(indicator.GetComponent<Renderer>().material.DOColor(Color.clear, .3f));
                 }
             }
+        }
+    }
+
+    void PlayParticles(Vector3 particlePosition)
+    {
+        clickParticleParent.position = particlePosition;
+        ParticleSystem[] particles = clickParticleParent.GetComponentsInChildren<ParticleSystem>();
+        foreach (ParticleSystem particle in particles)
+        {
+            Debug.Log("Playing particle");
+            particle.Play();
         }
     }
 
@@ -139,13 +143,12 @@ public class PlayerMovement : MonoBehaviour
         {
             float time = finalPath[i].GetComponent<Walkable>().isSlope ? 1.5f : 1;
 
-            s.Append(transform.DOMove(finalPath[i].GetComponent<Walkable>().GetWalkPoint(), .2f * time).SetEase(Ease.Linear));
+            s.Append(transform.DOMove(finalPath[i].GetComponent<Walkable>().GetWalkPoint(), .3f * time).SetEase(Ease.Linear));
         }
 
         if (clickedCube.GetComponent<Walkable>().isButton)
         {
             // pending button implementations
-            // s.AppendCallback(() => GameManager.instance.RotateRightPivot());
         }
 
         s.AppendCallback(() => Clear());
