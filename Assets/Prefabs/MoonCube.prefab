@@ -51,7 +51,11 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: c03149c7fa1e4654d9bc49eb26867aa5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 9b2fcf00bb0c40443a13e629d4f85d2f, type: 2}
+      objectReference: {fileID: 2100000, guid: 91a9c611a050eee43b27b5ea387b095c, type: 2}
+    - target: {fileID: -5754084199372789682, guid: c03149c7fa1e4654d9bc49eb26867aa5, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 073fcd53464df0a42b4d3668bb7521d9, type: 3}
     - target: {fileID: 919132149155446097, guid: c03149c7fa1e4654d9bc49eb26867aa5, type: 3}
       propertyPath: m_Name
       value: MoonCube
