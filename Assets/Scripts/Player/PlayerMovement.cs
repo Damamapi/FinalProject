@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
         if (cubeBelow.isGoal)
         {
             InputControl.DisableInput();
-            winScreen.enabled = true;
+            winScreen.gameObject.SetActive(true);
         }
     }
 

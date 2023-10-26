@@ -6,15 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class Win : MonoBehaviour
 {
+    public string currentLevel;
+    public string nextLevel;
     public void NextLevel()
     {
-        SceneManager.LoadScene("Level");
+        SceneManager.LoadScene(nextLevel);
     }
 
     public void Restart()
     {
        
-        SceneManager.LoadScene("Level");
+        SceneManager.LoadScene(currentLevel);
 
     }
 
