@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
                 if(mouseHit.transform.GetComponent<Walkable>() != null) 
                 {
                     clickedCube = mouseHit.transform;
-                    PlayParticles(mouseHit.transform.GetComponent<Walkable>().GetWalkPoint() + Vector3.up * 10 + Vector3.right * 10 + Vector3.forward * 10);
+                    PlayParticles(mouseHit.transform.GetComponent<Walkable>().GetWalkPoint() + Vector3.up * 5 + Vector3.right * 5 + Vector3.forward * 5);
 
                     DOTween.Kill(gameObject.transform);
                     finalPath.Clear();
