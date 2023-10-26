@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
 {
     public bool walking = false;
 
+    [SerializeField] Canvas winScreen;
+
     [Space]
 
     public Transform parent;
@@ -31,16 +33,9 @@ public class PlayerMovement : MonoBehaviour
         // Get cube under the player
         RayCastDown();
 
-        if (currentCube.GetComponent<Walkable>().movable)
-        {
-            transform.parent = currentCube;
-        }
-        else
-        {
-            transform.parent = parent;
-        }
+        CheckCurrentCube();
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && InputControl.IsInputAllowed)
         {
             Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition); RaycastHit mouseHit;
 
@@ -57,6 +52,21 @@ public class PlayerMovement : MonoBehaviour
 
                 }
             }
+        }
+    }
+
+    void CheckCurrentCube()
+    {
+        Walkable cubeBelow = currentCube.GetComponent<Walkable>();
+        // Check for movable
+        if (cubeBelow.movable) transform.parent = currentCube;
+        else transform.parent = parent;
+
+        // Check for win
+        if (cubeBelow.isGoal)
+        {
+            InputControl.DisableInput();
+            winScreen.enabled = true;
         }
     }
 

@@ -11,16 +11,11 @@ public class MenuP : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (InputControl.IsInputAllowed && Input.GetKeyDown(KeyCode.Escape))
         {
-            if (GamePaused)
-            {
-                Resume();
-            }
-            else
-            {
-                PauseUI();
-            }
+            if (GamePaused) Resume();
+            else PauseUI();
+
         }
     }
 

@@ -32,7 +32,7 @@ public class MovableCube : MonoBehaviour
                 Ray ray = new Ray(transform.position, directions[i]);
                 RaycastHit hit;
 
-                if (Physics.Raycast(ray, out hit, 1.1f, walkableLayer))
+                if (Physics.Raycast(ray, out hit, .6f, walkableLayer))
                 {
                     Walkable adjacentWalkable = hit.collider.GetComponent<Walkable>();
                     if (adjacentWalkable != null)

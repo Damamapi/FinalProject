@@ -125,6 +125,6 @@ MonoBehaviour:
   isSlope: 0
   movable: 0
   isButton: 0
-  isGoal: 0
+  isGoal: 1
   walkPointOffset: 0.5
   slopeOffset: 0.4
