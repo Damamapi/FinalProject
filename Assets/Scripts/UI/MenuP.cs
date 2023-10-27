@@ -8,6 +8,7 @@ public class MenuP : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject PauseButton;
     private bool GamePaused = false;
+    public string restarLevel;
 
     private void Update()
     {
@@ -41,12 +42,13 @@ public class MenuP : MonoBehaviour
     {
         GamePaused = false;
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Basic Level");
+        SceneManager.LoadScene(restarLevel);
 
     }
 
     public void MainMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
 }

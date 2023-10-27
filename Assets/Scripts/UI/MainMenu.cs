@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
-       StartCoroutine(StartDelay());
+        StartCoroutine(StartDelay());
     }
 
     IEnumerator StartDelay()
