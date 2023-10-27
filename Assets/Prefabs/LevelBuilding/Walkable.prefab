@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4916764926718499913}
   - component: {fileID: 428354594200412053}
   m_Layer: 10
-  m_Name: SpaceWalk
+  m_Name: Walkable
   m_TagString: LevelBlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
