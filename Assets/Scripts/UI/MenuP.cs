@@ -41,7 +41,7 @@ public class MenuP : MonoBehaviour
     {
         GamePaused = false;
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Level");
+        SceneManager.LoadScene("Basic Level");
 
     }
 

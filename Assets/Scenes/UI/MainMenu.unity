@@ -315,7 +315,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -320, y: -270.09174}
+  m_AnchoredPosition: {x: -301.88675, y: -270.09174}
   m_SizeDelta: {x: 255.91, y: 218.64001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &57777331
@@ -2843,7 +2843,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.53641677, y: 0.455597}
   m_AnchorMax: {x: 0.6447499, y: 0.5}
-  m_AnchoredPosition: {x: -456.27292, y: -88.94116}
+  m_AnchoredPosition: {x: -391.2784, y: -88.94116}
   m_SizeDelta: {x: 1351.857, y: 402.125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1397643212
@@ -2866,7 +2866,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GAME NAME
+  m_text: Enigmaquest
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: abd8b2acfcd281844a57284ef548667c, type: 2}
   m_sharedMaterial: {fileID: -7775616858245731471, guid: abd8b2acfcd281844a57284ef548667c, type: 2}
@@ -3496,7 +3496,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -49.908184, y: -275.96332}
+  m_AnchoredPosition: {x: -6.0376816, y: -275.96332}
   m_SizeDelta: {x: 255.91, y: 218.64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1545014279

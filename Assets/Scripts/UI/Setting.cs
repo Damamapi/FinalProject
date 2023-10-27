@@ -7,7 +7,7 @@ public class Setting : MonoBehaviour
 {
     public void Play()
     {
-        SceneManager.LoadScene("TestLevel");
+        SceneManager.LoadScene("Basic Level");
     }
 
     public void Return()
