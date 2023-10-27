@@ -23,13 +23,14 @@ public class PlayerMovement : MonoBehaviour
 
     public List<Transform> finalPath = new List<Transform>();
 
-    void Start()
+    private void Start()
     {
         RayCastDown();
     }
 
     private void Update()
     {
+        if (RotateLevel.isRotating) return;
         // Get cube under the player
         RayCastDown();
 

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class RotateObject : MonoBehaviour
+public class RotateLevel : MonoBehaviour
 {
     public float rotationDuration = 0.5f;
     private int orientationIndex = 2;
     private float[] orientations = { 0f, 90f, 180f, 270f };
 
-    public bool isRotating = false;
+    public static bool isRotating = false;
 
     void Update()
     {
