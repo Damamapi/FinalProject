@@ -30,7 +30,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (RotateLevel.isRotating) return;
         // Get cube under the player
         RayCastDown();
 
