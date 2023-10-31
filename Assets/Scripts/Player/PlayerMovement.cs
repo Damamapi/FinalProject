@@ -153,12 +153,14 @@ public class PlayerMovement : MonoBehaviour
             float time = finalPath[i].GetComponent<Walkable>().isSlope ? 1.5f : 1;
 
             Vector3 targetPosition = finalPath[i].GetComponent<Walkable>().GetWalkPoint();
-            Vector3 direction = (targetPosition - transform.position).normalized;
+            Vector3 previousPosition = i + 1 < finalPath.Count ? finalPath[i + 1].GetComponent<Walkable>().GetWalkPoint() : transform.position;
+            Vector3 direction = (targetPosition - previousPosition).normalized;
+
             float targetYRotation = GetTargetYRotation(direction);
             Quaternion targetRotation = Quaternion.Euler(0f, targetYRotation, transform.eulerAngles.z);
 
-            s.Append(transform.DOMove(targetPosition, .3f * time).SetEase(Ease.Linear));
-            s.Join(transform.DORotateQuaternion(targetRotation, .3f * time).SetEase(Ease.Linear));
+            s.Append(transform.DORotateQuaternion(targetRotation, .3f * time).SetEase(Ease.Linear));
+            s.Join(transform.DOMove(targetPosition, .3f * time).SetEase(Ease.Linear));
         }
 
         if (clickedCube.GetComponent<Walkable>().isButton)
@@ -168,6 +170,7 @@ public class PlayerMovement : MonoBehaviour
 
         s.AppendCallback(() => Clear());
     }
+
 
 
     float GetTargetYRotation(Vector3 direction)
