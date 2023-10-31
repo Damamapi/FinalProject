@@ -19,8 +19,8 @@ TagManager:
   - Walkable
   - NonWalkable
   - Particles
-  - 
-  - 
+  - Player
+  - MovableBlock
   - 
   - 
   - 
