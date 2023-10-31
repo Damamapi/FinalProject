@@ -24,7 +24,7 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("Level 0");
+        SceneManager.LoadScene("World1 - 1");
     }
 
     IEnumerator FadeOutThenIn(CanvasGroup outGroup, CanvasGroup inGroup)

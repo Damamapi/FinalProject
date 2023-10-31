@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 
 public class AudioManager : MonoBehaviour
@@ -25,7 +26,46 @@ public class AudioManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else
+        {
             Destroy(gameObject);
+        }
+    }
+
+    void Start()
+    {
+        PlayWorldTheme();
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        PlayWorldTheme();
+    }
+
+    void PlayWorldTheme()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        string themeToPlay = null;
+
+        if (currentSceneName.Contains("World1"))
+        {
+            themeToPlay = "world1";
+        }
+        else if (currentSceneName.Contains("World2"))
+        {
+            themeToPlay = "world2";
+        }
+        
+        Debug.Log(themeToPlay);
+
+        if (themeToPlay != null)
+        {
+            PlayMusic(themeToPlay);
+        }
+        else
+        {
+            Debug.LogWarning("No theme specified for the current scene: " + currentSceneName);
+        }
     }
 
     public void PlayMusic(string name)
@@ -34,14 +74,15 @@ public class AudioManager : MonoBehaviour
 
         if (s == null)
         {
-            Debug.LogWarning("Sound " + name + "not found");
+            Debug.LogWarning("Sound " + name + " not found");
         }
-        else
+        else if (musicSource.clip != s.clip || !musicSource.isPlaying)
         {
             musicSource.clip = s.clip;
             musicSource.Play();
         }
     }
+
 
     public void PlaySFX(string name)
     {
