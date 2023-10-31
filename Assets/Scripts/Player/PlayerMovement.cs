@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
                 if(mouseHit.transform.GetComponent<Walkable>() != null) 
                 {
                     clickedCube = mouseHit.transform;
-                    PlayParticles(mouseHit.transform.GetComponent<Walkable>().GetWalkPoint() + Vector3.up * 5 + Vector3.right * 5 + Vector3.forward * 5);
+                    PlayParticles(mouseHit.transform.GetComponent<Walkable>().GetWalkPoint());
 
                     DOTween.Kill(gameObject.transform);
                     finalPath.Clear();
@@ -76,7 +76,6 @@ public class PlayerMovement : MonoBehaviour
         ParticleSystem[] particles = clickParticleParent.GetComponentsInChildren<ParticleSystem>();
         foreach (ParticleSystem particle in particles)
         {
-            Debug.Log("Playing particle");
             particle.Play();
         }
     }
@@ -153,7 +152,13 @@ public class PlayerMovement : MonoBehaviour
         {
             float time = finalPath[i].GetComponent<Walkable>().isSlope ? 1.5f : 1;
 
-            s.Append(transform.DOMove(finalPath[i].GetComponent<Walkable>().GetWalkPoint(), .3f * time).SetEase(Ease.Linear));
+            Vector3 targetPosition = finalPath[i].GetComponent<Walkable>().GetWalkPoint();
+            Vector3 direction = (targetPosition - transform.position).normalized;
+            float targetYRotation = GetTargetYRotation(direction);
+            Quaternion targetRotation = Quaternion.Euler(0f, targetYRotation, transform.eulerAngles.z);
+
+            s.Append(transform.DOMove(targetPosition, .3f * time).SetEase(Ease.Linear));
+            s.Join(transform.DORotateQuaternion(targetRotation, .3f * time).SetEase(Ease.Linear));
         }
 
         if (clickedCube.GetComponent<Walkable>().isButton)
@@ -163,6 +168,15 @@ public class PlayerMovement : MonoBehaviour
 
         s.AppendCallback(() => Clear());
     }
+
+
+    float GetTargetYRotation(Vector3 direction)
+    {
+        float angle = Vector3.SignedAngle(Vector3.forward, direction, Vector3.up);
+        float targetYRotation = Mathf.Round(angle / 90f) * 90f;
+        return targetYRotation;
+    }
+
 
     void Clear()
     {
