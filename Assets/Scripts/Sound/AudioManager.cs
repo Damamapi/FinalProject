@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using UnityEngine.SceneManagement;
 
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
-    public Sound[] sounds;
-    private Dictionary<string, AudioClip> audioClipDictionary;
-    private AudioSource audioSource;
+    public Sound[] musicSounds, sfxSounds;
+    public AudioSource musicSource, sfxSource;
 
     [System.Serializable]
     public class Sound
@@ -20,40 +21,78 @@ public class AudioManager : MonoBehaviour
     void Awake()
     {
         if (instance == null)
+        {
             instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
         else
+        {
             Destroy(gameObject);
-
-        audioSource = gameObject.AddComponent<AudioSource>();
-        audioClipDictionary = new Dictionary<string, AudioClip>();
-
-        foreach (Sound sound in sounds)
-        {
-            audioClipDictionary.Add(sound.name, sound.clip);
         }
     }
 
-    public void PlaySound(string name)
+    void Start()
     {
-        if (audioClipDictionary.TryGetValue(name, out AudioClip clip))
+        PlayWorldTheme();
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        PlayWorldTheme();
+    }
+
+    void PlayWorldTheme()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        string themeToPlay = null;
+
+        if (currentSceneName.Contains("World1"))
         {
-            audioSource.PlayOneShot(clip);
+            themeToPlay = "world1";
+        }
+        else if (currentSceneName.Contains("World2"))
+        {
+            themeToPlay = "world2";
+        }
+
+        if (themeToPlay != null)
+        {
+            PlayMusic(themeToPlay);
         }
         else
         {
-            Debug.LogWarning("Sound not found: " + name);
+            Debug.LogWarning("No theme specified for the current scene: " + currentSceneName);
         }
     }
 
-    public void PlayLoopSound(string name)
+    public void PlayMusic(string name)
     {
-        if (audioClipDictionary.TryGetValue(name, out AudioClip clip))
+        Sound s = Array.Find(musicSounds, x => x.name == name);
+
+        if (s == null)
         {
-            audioSource.PlayOneShot(clip);
+            Debug.LogWarning("Sound " + name + " not found");
+        }
+        else if (musicSource.clip != s.clip || !musicSource.isPlaying)
+        {
+            musicSource.clip = s.clip;
+            musicSource.Play();
+        }
+    }
+
+
+    public void PlaySFX(string name)
+    {
+        Sound s = Array.Find(sfxSounds, x => x.name == name);
+
+        if (s == null)
+        {
+            Debug.LogWarning("Sound " + name + "not found");
         }
         else
         {
-            Debug.LogWarning("Sound not found: " + name);
+            sfxSource.PlayOneShot(s.clip);
         }
     }
 }
