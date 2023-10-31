@@ -21,17 +21,18 @@ public class RotateLevel : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             RotateY(-1);
-            AudioManager.instance.PlaySound("rotateLeft");
+            AudioManager.instance.PlaySFX("rotateLeft");
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
             RotateY(1);
-            AudioManager.instance.PlaySound("rotateRight");
+            AudioManager.instance.PlaySFX("rotateRight");
         }
 
         if (Input.GetKeyDown(KeyCode.W))
         {
             RotateVertical();
+            AudioManager.instance.PlaySFX("flip");
         }
     }
 

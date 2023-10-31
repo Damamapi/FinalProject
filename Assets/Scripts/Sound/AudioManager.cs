@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
-    public Sound[] sounds;
-    private Dictionary<string, AudioClip> audioClipDictionary;
-    private AudioSource audioSource;
+    public Sound[] musicSounds, sfxSounds;
+    public AudioSource musicSource, sfxSource;
 
     [System.Serializable]
     public class Sound
@@ -20,40 +20,40 @@ public class AudioManager : MonoBehaviour
     void Awake()
     {
         if (instance == null)
+        {
             instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
         else
             Destroy(gameObject);
-
-        audioSource = gameObject.AddComponent<AudioSource>();
-        audioClipDictionary = new Dictionary<string, AudioClip>();
-
-        foreach (Sound sound in sounds)
-        {
-            audioClipDictionary.Add(sound.name, sound.clip);
-        }
     }
 
-    public void PlaySound(string name)
+    public void PlayMusic(string name)
     {
-        if (audioClipDictionary.TryGetValue(name, out AudioClip clip))
+        Sound s = Array.Find(musicSounds, x => x.name == name);
+
+        if (s == null)
         {
-            audioSource.PlayOneShot(clip);
+            Debug.LogWarning("Sound " + name + "not found");
         }
         else
         {
-            Debug.LogWarning("Sound not found: " + name);
+            musicSource.clip = s.clip;
+            musicSource.Play();
         }
     }
 
-    public void PlayLoopSound(string name)
+    public void PlaySFX(string name)
     {
-        if (audioClipDictionary.TryGetValue(name, out AudioClip clip))
+        Sound s = Array.Find(sfxSounds, x => x.name == name);
+
+        if (s == null)
         {
-            audioSource.PlayOneShot(clip);
+            Debug.LogWarning("Sound " + name + "not found");
         }
         else
         {
-            Debug.LogWarning("Sound not found: " + name);
+            sfxSource.PlayOneShot(s.clip);
         }
     }
 }
