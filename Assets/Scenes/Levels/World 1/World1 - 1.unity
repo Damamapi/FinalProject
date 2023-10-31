@@ -1579,7 +1579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5662154873158842072, guid: 1a957aefebf9f54439739883c6dbefdd, type: 3}
       propertyPath: nextLevel
-      value: World2 - 0Playground
+      value: World1 - 2
       objectReference: {fileID: 0}
     - target: {fileID: 5662154873158842072, guid: 1a957aefebf9f54439739883c6dbefdd, type: 3}
       propertyPath: currentLevel

@@ -12,6 +12,7 @@ public class LevelSetupAnimation : MonoBehaviour
 
     void Start()
     {
+        InputControl.DisableInput();
         rigidbodies = FindObjectsOfType<Rigidbody>();
         foreach (var rb in rigidbodies)
         {

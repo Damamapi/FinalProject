@@ -55,8 +55,6 @@ public class AudioManager : MonoBehaviour
         {
             themeToPlay = "world2";
         }
-        
-        Debug.Log(themeToPlay);
 
         if (themeToPlay != null)
         {
