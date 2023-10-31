@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9185700148225017501}
   - component: {fileID: 2377601585177771428}
   - component: {fileID: 4861010474319065560}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: z
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 36585579880770962}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2.5}
+  m_LocalPosition: {x: -0.0000030398369, y: 0, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 6903499094140373974}
   - component: {fileID: 2143719342499133979}
   - component: {fileID: 9049261436304302667}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: z-
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,8 +133,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1016977333712342250}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: -0.5}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.50000095}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 1493831152044315578}
   - component: {fileID: 4210215879958768943}
   - component: {fileID: 967189495223613932}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: y-
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,8 +240,8 @@ Transform:
   m_GameObject: {fileID: 1520205614943049351}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: -0.5, z: 1}
-  m_LocalScale: {x: 3, y: 1, z: 1}
+  m_LocalPosition: {x: -0.0000015199184, y: -0.5, z: 0.5}
+  m_LocalScale: {x: 2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3454360743785373372}
@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 3458921487583223878}
   - component: {fileID: 7625712649477588648}
   - component: {fileID: 7390180501089801918}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -518,7 +518,7 @@ GameObject:
   - component: {fileID: 354001545091419093}
   - component: {fileID: 9094297391722729931}
   - component: {fileID: 148961504402851718}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: y
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -534,8 +534,8 @@ Transform:
   m_GameObject: {fileID: 2955633428012064919}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0.5, z: 1}
-  m_LocalScale: {x: 3, y: 1, z: 1}
+  m_LocalPosition: {x: -0.0000015199184, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3454360743785373372}
@@ -624,7 +624,7 @@ GameObject:
   - component: {fileID: 2191899036687201796}
   - component: {fileID: 7681449495474275258}
   - component: {fileID: 9111243045950294106}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: x
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -640,8 +640,8 @@ Transform:
   m_GameObject: {fileID: 3007241390911886141}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.5, y: -0, z: 1}
-  m_LocalScale: {x: 3, y: 1, z: 1}
+  m_LocalPosition: {x: 0.49999848, y: 0, z: 0.49999988}
+  m_LocalScale: {x: 2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3454360743785373372}
@@ -730,7 +730,7 @@ GameObject:
   - component: {fileID: 7039703109309907873}
   - component: {fileID: 6155389591476574409}
   - component: {fileID: 8592766764026911445}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: x-
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -745,9 +745,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5029936714206475034}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: -0.5, y: 0, z: 1}
-  m_LocalScale: {x: 3, y: 1, z: 1}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0.70710677, w: 0}
+  m_LocalPosition: {x: -0.5000018, y: 0, z: 0.5}
+  m_LocalScale: {x: 2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3454360743785373372}
@@ -833,7 +833,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3454360743785373372}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Limits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -849,16 +849,16 @@ Transform:
   m_GameObject: {fileID: 5219773195681027648}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.0000007599592, y: 0, z: 0.25}
+  m_LocalScale: {x: 1, y: 1, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 444909206485031063}
   - {fileID: 5143143005153333950}
-  - {fileID: 2318656156964728615}
-  - {fileID: 3739228363853588840}
   - {fileID: 2704252101007483585}
   - {fileID: 1967949913489114194}
+  - {fileID: 3739228363853588840}
+  - {fileID: 2318656156964728615}
   m_Father: {fileID: 5214571220245260273}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6668346313211406379
@@ -870,7 +870,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5214571220245260273}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Movable Cube
   m_TagString: LevelBlock
   m_Icon: {fileID: 0}
