@@ -9,6 +9,8 @@ using UnityEngine.Rendering;
 public class PlayerMovement : MonoBehaviour
 {
     public bool walking = false;
+    private Animator animator;
+    public GameObject modelAnimator;
 
     [SerializeField] Canvas winScreen;
 
@@ -26,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         RayCastDown();
+        animator = modelAnimator.GetComponent<Animator>();
     }
 
     private void Update()
@@ -146,6 +149,7 @@ public class PlayerMovement : MonoBehaviour
         Sequence s = DOTween.Sequence();
 
         walking = true;
+        animator.SetBool("Walking",walking);
         InputControl.DisableInput();
 
         for (int i = finalPath.Count - 1; i > 0; i--)
@@ -189,6 +193,7 @@ public class PlayerMovement : MonoBehaviour
         }
         finalPath.Clear();
         walking = false;
+        animator.SetBool("Walking", walking);
         InputControl.AllowInput();
     }
 
