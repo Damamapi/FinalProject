@@ -12,17 +12,17 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - MovableBlock1
+  - Limits1
+  - MovableBlock2
+  - Limits2
   - Walkable
-  - NonWalkable
+  - 
   - Particles
   - Player
-  - MovableBlock
   - 
-  - 
+  - MovableBlock3
+  - Limits3
   - 
   - 
   - 

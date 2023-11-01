@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9185700148225017501}
   - component: {fileID: 2377601585177771428}
   - component: {fileID: 4861010474319065560}
-  m_Layer: 14
+  m_Layer: 9
   m_Name: z
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 6903499094140373974}
   - component: {fileID: 2143719342499133979}
   - component: {fileID: 9049261436304302667}
-  m_Layer: 14
+  m_Layer: 9
   m_Name: z-
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 1493831152044315578}
   - component: {fileID: 4210215879958768943}
   - component: {fileID: 967189495223613932}
-  m_Layer: 14
+  m_Layer: 9
   m_Name: y-
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 3458921487583223878}
   - component: {fileID: 7625712649477588648}
   - component: {fileID: 7390180501089801918}
-  m_Layer: 14
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -483,7 +483,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkableLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 34112
   raycastDirections: 01010101
 --- !u!135 &7390180501089801918
 SphereCollider:
@@ -518,7 +518,7 @@ GameObject:
   - component: {fileID: 354001545091419093}
   - component: {fileID: 9094297391722729931}
   - component: {fileID: 148961504402851718}
-  m_Layer: 14
+  m_Layer: 9
   m_Name: y
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -624,7 +624,7 @@ GameObject:
   - component: {fileID: 2191899036687201796}
   - component: {fileID: 7681449495474275258}
   - component: {fileID: 9111243045950294106}
-  m_Layer: 14
+  m_Layer: 9
   m_Name: x
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -730,7 +730,7 @@ GameObject:
   - component: {fileID: 7039703109309907873}
   - component: {fileID: 6155389591476574409}
   - component: {fileID: 8592766764026911445}
-  m_Layer: 14
+  m_Layer: 9
   m_Name: x-
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -833,7 +833,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3454360743785373372}
-  m_Layer: 14
+  - component: {fileID: 3008567794329521886}
+  m_Layer: 9
   m_Name: Limits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -861,6 +862,18 @@ Transform:
   - {fileID: 2318656156964728615}
   m_Father: {fileID: 5214571220245260273}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3008567794329521886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5219773195681027648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91dc6d83b8d37a94b94c62aac0b7f3a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6668346313211406379
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,7 +884,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5214571220245260273}
   m_Layer: 14
-  m_Name: Movable Cube
+  m_Name: Movable Cube2
   m_TagString: LevelBlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

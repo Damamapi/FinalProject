@@ -50,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
                     DOTween.Kill(gameObject.transform);
                     finalPath.Clear();
                     FindPath();
-
                 }
             }
         }
