@@ -45,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     clickedCube = mouseHit.transform;
                     PlayParticles(mouseHit.transform.GetComponent<Walkable>().GetWalkPoint());
+                    AudioManager.instance.PlayRandomClick();
 
                     DOTween.Kill(gameObject.transform);
                     finalPath.Clear();

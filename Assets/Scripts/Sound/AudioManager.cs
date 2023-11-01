@@ -8,7 +8,10 @@ using UnityEngine.SceneManagement;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
-    public Sound[] musicSounds, sfxSounds;
+    public Sound[] musicSounds, sfxSounds, clickSounds;
+
+    [Space]
+
     public AudioSource musicSource, sfxSource;
 
     [System.Serializable]
@@ -94,5 +97,11 @@ public class AudioManager : MonoBehaviour
         {
             sfxSource.PlayOneShot(s.clip);
         }
+    }
+
+    public void PlayRandomClick()
+    {
+        int click = UnityEngine.Random.Range(0, clickSounds.Length);
+        sfxSource.PlayOneShot(clickSounds[click].clip);
     }
 }

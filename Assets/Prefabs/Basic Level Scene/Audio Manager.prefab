@@ -53,11 +53,22 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 243baac3c502aef47ae568ebf5852c71, type: 3}
   sfxSounds:
   - name: flip
-    clip: {fileID: 8300000, guid: 7b2adff8716547149b79ce8fff044574, type: 3}
+    clip: {fileID: 8300000, guid: 0100b1b2d590c6a4eb3072f8863ccce2, type: 3}
   - name: rotateLeft
-    clip: {fileID: 8300000, guid: 10a57d842d8409e4bb365cdb29843f57, type: 3}
+    clip: {fileID: 8300000, guid: e9f86ab4200954e43a8f97c0617a484d, type: 3}
   - name: rotateRight
-    clip: {fileID: 8300000, guid: cc88540bd44b7f1489949cc30fb8ddd6, type: 3}
+    clip: {fileID: 8300000, guid: c7eb248761771de4984059e90fd7badb, type: 3}
+  clickSounds:
+  - name: click1
+    clip: {fileID: 8300000, guid: bb2a4f0e9ea54ab43acdbdf2550824db, type: 3}
+  - name: click2
+    clip: {fileID: 8300000, guid: a166b7280b96b1941ad0298a4041b0a5, type: 3}
+  - name: click3
+    clip: {fileID: 8300000, guid: 98349786906578a4abbb9ef3901ca6ea, type: 3}
+  - name: click4
+    clip: {fileID: 8300000, guid: 1d0a876f71770344f9284d05a44b9722, type: 3}
+  - name: click5
+    clip: {fileID: 8300000, guid: 531384e0e4b30644e9da0994301595e3, type: 3}
   musicSource: {fileID: 2750038254075230046}
   sfxSource: {fileID: 2782888393297070939}
 --- !u!1 &5421397808851091890
