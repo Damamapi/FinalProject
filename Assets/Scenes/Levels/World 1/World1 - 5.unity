@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0.19563192, b: 0.25500366, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0.19568387, b: 0.2549636, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -896,33 +896,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseButton
       objectReference: {fileID: 0}
-    - target: {fileID: 3921018657571124369, guid: 00f8c0b11f0be904f96605f18377982c, type: 3}
-      propertyPath: pauseMenu
-      value: 
-      objectReference: {fileID: 665819571}
-    - target: {fileID: 3921018657571124369, guid: 00f8c0b11f0be904f96605f18377982c, type: 3}
-      propertyPath: PauseButton
-      value: 
-      objectReference: {fileID: 665819570}
-    - target: {fileID: 3921018657571124369, guid: 00f8c0b11f0be904f96605f18377982c, type: 3}
-      propertyPath: restarLevel
-      value: Level 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00f8c0b11f0be904f96605f18377982c, type: 3}
---- !u!1 &665819570 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3863716646457727123, guid: 00f8c0b11f0be904f96605f18377982c, type: 3}
-  m_PrefabInstance: {fileID: 665819569}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &665819571 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7952910029206538409, guid: 00f8c0b11f0be904f96605f18377982c, type: 3}
-  m_PrefabInstance: {fileID: 665819569}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &718376412
 PrefabInstance:
   m_ObjectHideFlags: 0
