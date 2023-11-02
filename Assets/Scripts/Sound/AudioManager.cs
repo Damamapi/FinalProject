@@ -50,14 +50,9 @@ public class AudioManager : MonoBehaviour
         string currentSceneName = SceneManager.GetActiveScene().name;
         string themeToPlay = null;
 
-        if (currentSceneName.Contains("World1"))
-        {
-            themeToPlay = "world1";
-        }
-        else if (currentSceneName.Contains("World2"))
-        {
-            themeToPlay = "world2";
-        }
+        if (currentSceneName.Contains("World1")) themeToPlay = "world1";
+        else if (currentSceneName.Contains("World2")) themeToPlay = "world2";
+        else if (currentSceneName.Contains("Menu")) themeToPlay = "mainMenu";
 
         if (themeToPlay != null)
         {

@@ -24,6 +24,7 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
+        AudioManager.instance.PlaySFX("hihatOpen");
         SceneManager.LoadScene("World1 - 1");
     }
 
@@ -51,16 +52,19 @@ public class MainMenu : MonoBehaviour
 
     public void Settings()
     {
+        AudioManager.instance.PlaySFX("hihatOpen");
         StartCoroutine(FadeOutThenIn(mainMenu, settingsGroup));
     }
 
     public void BackToMainMenu()
     {
+        AudioManager.instance.PlaySFX("hihatClosed");
         StartCoroutine(FadeOutThenIn(settingsGroup, mainMenu));
     }
 
     public void Credit()
     {
+        AudioManager.instance.PlaySFX("hihatOpen");
         //SceneManager.LoadScene("Credits");
     }
 }
