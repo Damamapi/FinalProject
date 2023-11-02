@@ -1258,11 +1258,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5662154873158842072, guid: 1a957aefebf9f54439739883c6dbefdd, type: 3}
       propertyPath: nextLevel
-      value: Level 1
+      value: MainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 5662154873158842072, guid: 1a957aefebf9f54439739883c6dbefdd, type: 3}
       propertyPath: currentLevel
-      value: Level 0
+      value: World2 - 1
       objectReference: {fileID: 0}
     - target: {fileID: 8133515230875218256, guid: 1a957aefebf9f54439739883c6dbefdd, type: 3}
       propertyPath: m_Pivot.x
