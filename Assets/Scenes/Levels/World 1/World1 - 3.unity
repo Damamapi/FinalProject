@@ -4802,49 +4802,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1975482312037668530, guid: 1a957aefebf9f54439739883c6dbefdd, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 1975482312037668530, guid: 1a957aefebf9f54439739883c6dbefdd, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 1975482312037668530, guid: 1a957aefebf9f54439739883c6dbefdd, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -172.00002
-      objectReference: {fileID: 0}
     - target: {fileID: 2966995247597174158, guid: 1a957aefebf9f54439739883c6dbefdd, type: 3}
       propertyPath: m_Name
       value: Win
-      objectReference: {fileID: 0}
-    - target: {fileID: 2966995247597174158, guid: 1a957aefebf9f54439739883c6dbefdd, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3049593324015775750, guid: 1a957aefebf9f54439739883c6dbefdd, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 40f2a3ef072fef04ca7f2fde8799cd33, type: 3}
-    - target: {fileID: 3573545519037797303, guid: 1a957aefebf9f54439739883c6dbefdd, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 3573545519037797303, guid: 1a957aefebf9f54439739883c6dbefdd, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 3573545519037797303, guid: 1a957aefebf9f54439739883c6dbefdd, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -172.00002
-      objectReference: {fileID: 0}
-    - target: {fileID: 5662154873158842072, guid: 1a957aefebf9f54439739883c6dbefdd, type: 3}
-      propertyPath: nextLevel
-      value: World2 - 0Playground
-      objectReference: {fileID: 0}
-    - target: {fileID: 5662154873158842072, guid: 1a957aefebf9f54439739883c6dbefdd, type: 3}
-      propertyPath: currentLevel
-      value: World1 - 3
       objectReference: {fileID: 0}
     - target: {fileID: 8133515230875218256, guid: 1a957aefebf9f54439739883c6dbefdd, type: 3}
       propertyPath: m_Pivot.x
@@ -4926,34 +4886,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8776080375929715188, guid: 1a957aefebf9f54439739883c6dbefdd, type: 3}
-      propertyPath: m_text
-      value: More Levels Coming Soon!
-      objectReference: {fileID: 0}
-    - target: {fileID: 8776080375929715188, guid: 1a957aefebf9f54439739883c6dbefdd, type: 3}
-      propertyPath: m_fontSize
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 8776080375929715188, guid: 1a957aefebf9f54439739883c6dbefdd, type: 3}
-      propertyPath: m_margin.x
-      value: -252.69891
-      objectReference: {fileID: 0}
-    - target: {fileID: 8776080375929715188, guid: 1a957aefebf9f54439739883c6dbefdd, type: 3}
-      propertyPath: m_margin.y
-      value: -10.655334
-      objectReference: {fileID: 0}
-    - target: {fileID: 8776080375929715188, guid: 1a957aefebf9f54439739883c6dbefdd, type: 3}
-      propertyPath: m_margin.z
-      value: -234.99133
-      objectReference: {fileID: 0}
-    - target: {fileID: 8776080375929715188, guid: 1a957aefebf9f54439739883c6dbefdd, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 8783797165785372187, guid: 1a957aefebf9f54439739883c6dbefdd, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 84fe10a304e7d6b45b970c961c510a95, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
