@@ -7,15 +7,14 @@ public class TutorialCollider : MonoBehaviour
 {
     public CanvasGroup textRotate;
 
-    private void OnTriggerEnter(Collider  collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            Debug.Log("TochCollider");
-            textRotate.alpha = 0f;
+           
+            textRotate.alpha = 1f;
             textRotate.gameObject.SetActive(true);
             textRotate.DOFade(1, 1f).SetEase(Ease.InCubic);
-
         }
    
 
