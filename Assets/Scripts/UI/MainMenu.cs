@@ -65,6 +65,6 @@ public class MainMenu : MonoBehaviour
     public void Credit()
     {
         AudioManager.instance.PlaySFX("hihatOpen");
-        //SceneManager.LoadScene("Credits");
+        SceneManager.LoadScene("Credits");
     }
 }
