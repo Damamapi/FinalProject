@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class RotateLevel : MonoBehaviour
 {
@@ -12,7 +13,14 @@ public class RotateLevel : MonoBehaviour
 
     public static bool isRotating = false;
 
+    bool world2 = false;
+
     public CinemachineVirtualCamera cam;
+
+    private void Start()
+    {
+        world2 = SceneManager.GetActiveScene().name.Contains("World2");
+    }
 
     void Update()
     {

@@ -8,7 +8,10 @@ using UnityEngine.SceneManagement;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
-    public Sound[] musicSounds, sfxSounds;
+    public Sound[] musicSounds, sfxSounds, clickSounds;
+
+    [Space]
+
     public AudioSource musicSource, sfxSource;
 
     [System.Serializable]
@@ -47,14 +50,9 @@ public class AudioManager : MonoBehaviour
         string currentSceneName = SceneManager.GetActiveScene().name;
         string themeToPlay = null;
 
-        if (currentSceneName.Contains("World1"))
-        {
-            themeToPlay = "world1";
-        }
-        else if (currentSceneName.Contains("World2"))
-        {
-            themeToPlay = "world2";
-        }
+        if (currentSceneName.Contains("World1")) themeToPlay = "world1";
+        else if (currentSceneName.Contains("World2")) themeToPlay = "world2";
+        else if (currentSceneName.Contains("Menu")) themeToPlay = "mainMenu";
 
         if (themeToPlay != null)
         {
@@ -81,6 +79,16 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void ToggleMusic()
+    {
+        musicSource.mute = !musicSource.mute;
+    }
+
+    public void ToggleSFX()
+    {
+        sfxSource.mute = !sfxSource.mute;
+    }
+
 
     public void PlaySFX(string name)
     {
@@ -94,5 +102,11 @@ public class AudioManager : MonoBehaviour
         {
             sfxSource.PlayOneShot(s.clip);
         }
+    }
+
+    public void PlayRandomClick()
+    {
+        int click = UnityEngine.Random.Range(0, clickSounds.Length);
+        sfxSource.PlayOneShot(clickSounds[click].clip);
     }
 }
