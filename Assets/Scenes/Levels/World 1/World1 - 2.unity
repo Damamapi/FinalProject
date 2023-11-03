@@ -1719,6 +1719,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Win
       objectReference: {fileID: 0}
+    - target: {fileID: 5662154873158842072, guid: 1a957aefebf9f54439739883c6dbefdd, type: 3}
+      propertyPath: nextLevel
+      value: World1 - 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662154873158842072, guid: 1a957aefebf9f54439739883c6dbefdd, type: 3}
+      propertyPath: currentLevel
+      value: World1 - 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8133515230875218256, guid: 1a957aefebf9f54439739883c6dbefdd, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2467,7 +2475,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1383806611936189849, guid: ed8c4ab5cbc5e874590325aca38bdacf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.584556
+      value: 15.584557
       objectReference: {fileID: 0}
     - target: {fileID: 1383806611936189849, guid: ed8c4ab5cbc5e874590325aca38bdacf, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2503,7 +2511,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4730718643964865065, guid: ed8c4ab5cbc5e874590325aca38bdacf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.584556
+      value: 15.584557
       objectReference: {fileID: 0}
     - target: {fileID: 4730718643964865065, guid: ed8c4ab5cbc5e874590325aca38bdacf, type: 3}
       propertyPath: m_LocalPosition.y
