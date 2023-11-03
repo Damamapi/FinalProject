@@ -16,6 +16,4 @@ public class Setting : MonoBehaviour
         AudioManager.instance.PlaySFX("hihatClosed");
         SceneManager.LoadScene("MainMenu");
     }
-
-
 }

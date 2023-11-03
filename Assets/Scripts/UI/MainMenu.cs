@@ -67,4 +67,16 @@ public class MainMenu : MonoBehaviour
         AudioManager.instance.PlaySFX("hihatOpen");
         SceneManager.LoadScene("Credits");
     }
+
+    public void MuteMusic()
+    {
+        AudioManager.instance.PlaySFX("hihatOpen");
+        AudioManager.instance.ToggleMusic();
+    }
+
+    public void MuteSFX()
+    {
+        AudioManager.instance.ToggleSFX();
+        AudioManager.instance.PlaySFX("hihatOpen");
+    }
 }
