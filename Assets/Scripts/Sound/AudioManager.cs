@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 
 
 public class AudioManager : MonoBehaviour
@@ -12,7 +13,9 @@ public class AudioManager : MonoBehaviour
 
     [Space]
 
-    public AudioSource musicSource, sfxSource;
+    public AudioSource musicSource, sfxSource, stepsSource;
+
+    bool playingSteps = false;
 
     [System.Serializable]
     public class Sound
@@ -103,6 +106,37 @@ public class AudioManager : MonoBehaviour
             sfxSource.PlayOneShot(s.clip);
         }
     }
+
+    public void ToggleSteps()
+    {
+        if (!stepsSource.isPlaying)
+        {
+            playingSteps = true;
+
+            stepsSource.Play();
+        }
+        else
+        {
+            StartCoroutine(FadeOut(stepsSource));
+        }
+    }
+
+    private IEnumerator FadeOut(AudioSource audioSource)
+    {
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / 0.2f;
+
+            yield return null;
+        }
+
+        audioSource.Stop();
+        audioSource.volume = startVolume;
+        playingSteps = false;
+    }
+
 
     public void PlayRandomClick()
     {

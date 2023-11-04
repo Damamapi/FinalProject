@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
         else transform.parent = parent;
 
         // Check for win
-        if (cubeBelow.isGoal)
+        if (InputControl.IsInputAllowed && cubeBelow.isGoal)
         {
             InputControl.DisableInput();
             winScreen.gameObject.SetActive(true);
@@ -149,6 +149,7 @@ public class PlayerMovement : MonoBehaviour
         Sequence s = DOTween.Sequence();
 
         walking = true;
+        AudioManager.instance.ToggleSteps();
         animator.SetBool("Walking",walking);
         InputControl.DisableInput();
 
@@ -193,6 +194,7 @@ public class PlayerMovement : MonoBehaviour
         }
         finalPath.Clear();
         walking = false;
+        AudioManager.instance.ToggleSteps();
         animator.SetBool("Walking", walking);
         InputControl.AllowInput();
     }

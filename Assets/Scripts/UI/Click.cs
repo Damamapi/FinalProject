@@ -12,7 +12,7 @@ public class Click : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (InputControl.IsInputAllowed && Input.GetKeyDown(KeyCode.Mouse0))
         {
             FadeText();
         }
