@@ -16,14 +16,4 @@ public class MouseScript : MonoBehaviour
         cursorHotspot = new Vector2(cursorTexture.width / 2, cursorTexture.height / 2);
         Cursor.SetCursor(cursorTexture, cursorHotspot, CursorMode.Auto);
     }
-
-    // To check where your mouse is really pointing
-    // track the mouse position in you update function
-    void Update()
-    {
-        Vector3 currentMouse = Input.mousePosition;
-        Ray ray = Camera.main.ScreenPointToRay(currentMouse);
-        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
-        Debug.DrawLine(ray.origin, hit.point);
-    }
 }
