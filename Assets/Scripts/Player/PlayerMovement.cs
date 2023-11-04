@@ -69,6 +69,8 @@ public class PlayerMovement : MonoBehaviour
         if (InputControl.IsInputAllowed && cubeBelow.isGoal)
         {
             InputControl.DisableInput();
+            walking = false;
+            AudioManager.instance.ToggleSteps();
             winScreen.gameObject.SetActive(true);
         }
     }

@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
 
     public CanvasGroup mainMenu;
     public CanvasGroup settingsGroup;
+    public CanvasGroup credits;
 
     private void Start()
     {
@@ -62,10 +63,16 @@ public class MainMenu : MonoBehaviour
         StartCoroutine(FadeOutThenIn(settingsGroup, mainMenu));
     }
 
-    public void Credit()
+    public void BackToMainFromCredits()
+    {
+        AudioManager.instance.PlaySFX("hihatClosed");
+        StartCoroutine(FadeOutThenIn(credits, mainMenu));
+    }
+
+    public void Credits()
     {
         AudioManager.instance.PlaySFX("hihatOpen");
-        SceneManager.LoadScene("Credits");
+        StartCoroutine(FadeOutThenIn(mainMenu, credits));
     }
 
     public void MuteMusic()
