@@ -48,7 +48,7 @@ public class LevelSetupAnimation : MonoBehaviour
             rb.detectCollisions = true;
         }
 
-        InputControl.AllowInput();
+        InputControl.EnableInput();
     }
 
     Vector3 RandomOffset()

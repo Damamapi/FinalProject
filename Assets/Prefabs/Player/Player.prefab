@@ -42,6 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2143460787447182845}
   - component: {fileID: 4138481970626142803}
+  - component: {fileID: 8476245603629486559}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -84,6 +85,19 @@ MonoBehaviour:
   currentCube: {fileID: 0}
   clickedCube: {fileID: 0}
   clickParticleParent: {fileID: 0}
+  finalPath: []
+--- !u!114 &8476245603629486559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5361597146318802986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee3aef961d974045a3634f43088ca62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   finalPath: []
 --- !u!1001 &2087720409745883756
 PrefabInstance:

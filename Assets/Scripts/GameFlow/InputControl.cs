@@ -6,7 +6,7 @@ public class InputControl : MonoBehaviour
 {
     public static bool IsInputAllowed { get; private set; } = false;
 
-    public static void AllowInput()
+    public static void EnableInput()
     {
         IsInputAllowed = true;
     }

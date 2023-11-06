@@ -15,8 +15,6 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource musicSource, sfxSource, stepsSource;
 
-    bool playingSteps = false;
-
     [System.Serializable]
     public class Sound
     {
@@ -111,8 +109,6 @@ public class AudioManager : MonoBehaviour
     {
         if (!stepsSource.isPlaying)
         {
-            playingSteps = true;
-
             stepsSource.Play();
         }
         else
@@ -134,7 +130,6 @@ public class AudioManager : MonoBehaviour
 
         audioSource.Stop();
         audioSource.volume = startVolume;
-        playingSteps = false;
     }
 
 

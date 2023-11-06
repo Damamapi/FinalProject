@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class RotateLevel : MonoBehaviour
 {
+
+    private InputHandler inputHandler = new InputHandler();
+
     public float rotationDuration = 0.5f;
     private int orientationIndex = 2;
     private float[] orientations = { 0f, 90f, 180f, 270f };
@@ -26,18 +29,18 @@ public class RotateLevel : MonoBehaviour
     {
         if (!InputControl.IsInputAllowed) return;
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (inputHandler.HasReceivedRotateLeftInput())
         {
             RotateY(-1);
             AudioManager.instance.PlaySFX("rotateLeft");
         }
-        else if (Input.GetKeyDown(KeyCode.E))
+        else if (inputHandler.HasReceivedRotateRightInput())
         {
             RotateY(1);
             AudioManager.instance.PlaySFX("rotateRight");
         }
 
-        if (Input.GetKeyDown(KeyCode.W))
+        if (inputHandler.HasReceivedFlipInput())
         {
             RotateVertical();
             AudioManager.instance.PlaySFX("flip");

@@ -8,27 +8,23 @@ using UnityEngine.Rendering;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public bool walking = false;
-    private Animator animator;
-    public GameObject modelAnimator;
-
     [SerializeField] Canvas winScreen;
+    private Animator animator;
 
-    [Space]
-
+    public GameObject modelAnimator;
     public Transform parent;
     public Transform currentCube;
     public Transform clickedCube;
     public Transform clickParticleParent;
 
-    [Space]
-
-    public List<Transform> finalPath = new List<Transform>();
+    private PlayerPathFinder pathFinder;
+    private InputHandler inputHandler = new InputHandler();
 
     private void Start()
     {
         RayCastDown();
         animator = modelAnimator.GetComponent<Animator>();
+        pathFinder = gameObject.GetComponent<PlayerPathFinder>();
     }
 
     private void Update()
@@ -38,21 +34,22 @@ public class PlayerMovement : MonoBehaviour
 
         CheckCurrentCube();
 
-        if (Input.GetMouseButtonDown(0) && InputControl.IsInputAllowed)
+        if (inputHandler.HasReceivedClickInput())
         {
-            Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition); RaycastHit mouseHit;
+            Ray mouseRay = inputHandler.GetMouseRay(); RaycastHit mouseHit;
 
-            if(Physics.Raycast(mouseRay, out mouseHit))
+            if (Physics.Raycast(mouseRay, out mouseHit))
             {
-                if(mouseHit.transform.GetComponent<Walkable>() != null) 
+                if (mouseHit.transform.GetComponent<Walkable>() != null) 
                 {
                     clickedCube = mouseHit.transform;
                     PlayParticles(mouseHit.transform.GetComponent<Walkable>().GetWalkPoint());
                     AudioManager.instance.PlayRandomClick();
 
                     DOTween.Kill(gameObject.transform);
-                    finalPath.Clear();
-                    FindPath();
+                    pathFinder.finalPath.Clear();
+                    pathFinder.FindPath(currentCube, clickedCube);
+                    FollowPath(pathFinder.finalPath);
                 }
             }
         }
@@ -69,7 +66,6 @@ public class PlayerMovement : MonoBehaviour
         if (InputControl.IsInputAllowed && cubeBelow.isGoal)
         {
             InputControl.DisableInput();
-            walking = false;
             AudioManager.instance.ToggleSteps();
             winScreen.gameObject.SetActive(true);
         }
@@ -85,74 +81,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void FindPath()
-    {
-        List<Transform> nextCubes = new List<Transform>();
-        List<Transform> pastCubes = new List<Transform>();
-
-        foreach (WalkPath path in currentCube.GetComponent<Walkable>().possiblePaths) 
-        {
-            if (path.active)
-            {
-                nextCubes.Add(path.target);
-                path.target.GetComponent<Walkable>().previousBlock = currentCube;
-            }
-        }
-
-        pastCubes.Add(currentCube);
-
-        ExploreCube(nextCubes, pastCubes);
-        BuildPath();
-    }
-
-    void ExploreCube(List<Transform> nextCubes, List<Transform> visitedCubes)
-    {
-        Transform current = nextCubes.First();
-        nextCubes.Remove(current);
-
-        if (current == clickedCube) return;
-        
-        foreach(WalkPath path in current.GetComponent<Walkable>().possiblePaths)
-        {
-            if (!visitedCubes.Contains(path.target) && path.active)
-            {
-                nextCubes.Add(path.target);
-                path.target.GetComponent<Walkable>().previousBlock = current;
-            }
-        }
-
-        visitedCubes.Add(current);
-        
-        if (nextCubes.Any())
-        {
-            ExploreCube(nextCubes, visitedCubes);
-        }
-    }
-
-    void BuildPath()
-    {
-        Transform cube = clickedCube;
-        while (cube != currentCube)
-        {
-            finalPath.Add(cube);
-            if (cube.GetComponent<Walkable>().previousBlock != null)
-                cube = cube.GetComponent<Walkable>().previousBlock;
-            else
-                return;
-        }
-
-        finalPath.Insert(0, clickedCube);
-
-        FollowPath();
-    }
-
-    void FollowPath()
+    void FollowPath(List<Transform> finalPath)
     {
         Sequence s = DOTween.Sequence();
 
-        walking = true;
         AudioManager.instance.ToggleSteps();
-        animator.SetBool("Walking",walking);
+        animator.SetBool("Walking",true);
         InputControl.DisableInput();
 
         for (int i = finalPath.Count - 1; i > 0; i--)
@@ -170,11 +104,6 @@ public class PlayerMovement : MonoBehaviour
             s.Join(transform.DOMove(targetPosition, .3f * time).SetEase(Ease.Linear));
         }
 
-        if (clickedCube.GetComponent<Walkable>().isButton)
-        {
-            // pending button implementations
-        }
-
         s.AppendCallback(() => Clear());
     }
 
@@ -190,15 +119,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Clear()
     {
-        foreach (Transform t in finalPath)
+        foreach (Transform t in pathFinder.finalPath)
         {
             t.GetComponent<Walkable>().previousBlock = null;
         }
-        finalPath.Clear();
-        walking = false;
+        pathFinder.finalPath.Clear();
         AudioManager.instance.ToggleSteps();
-        animator.SetBool("Walking", walking);
-        InputControl.AllowInput();
+        animator.SetBool("Walking", false);
+        InputControl.EnableInput();
     }
 
     public void RayCastDown()
