@@ -1,31 +1,116 @@
-using System.Collections;
-using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InputHandler
 {
-    public bool HasReceivedClickInput()
+
+    private TouchControls touchControls;
+    private InputAction clickAction;
+    private InputAction rotateLeftAction;
+    private InputAction rotateRightAction;
+    private InputAction flipAction;
+
+    private bool isMobile = false;
+
+    // flags for mobile rotation
+    bool rotateLeft, rotateRight, flip, tap = false;
+
+    // For desktop
+    public void Init()
     {
-        return Input.GetMouseButtonDown(0) && InputControl.IsInputAllowed;
+        touchControls = new TouchControls();
+        touchControls.Desktop.Enable();
+        clickAction = touchControls.Desktop.Click;
+        rotateLeftAction = touchControls.Desktop.RotateLeft;
+        rotateRightAction = touchControls.Desktop.RotateRight;
+        flipAction = touchControls.Desktop.Flip;
     }
 
-    public Ray GetMouseRay()
+    // For mobile
+    public void Init(SwipeDetection swipeDetection)
     {
-        return Camera.main.ScreenPointToRay(Input.mousePosition);
+        isMobile = true;
+        touchControls = new TouchControls();
+        touchControls.Touch.Enable();
+        swipeDetection.OnSwipe += HandleSwipe;
+        swipeDetection.OnTap += HandleTap;
+    }
+
+    public void ResetFlags()
+    {
+        rotateLeft = rotateRight = flip = tap = false;
+    }
+
+    public bool HasReceivedClickInput()
+    {
+        if (InputControl.IsInputAllowed)
+        {
+            if (isMobile) return tap;
+            else return clickAction.triggered;
+        }
+        return false;
+    }
+
+    public Ray GetRay()
+    {
+        Vector2 position = Application.isMobilePlatform
+            ? Touchscreen.current.primaryTouch.position.ReadValue()
+            : Mouse.current.position.ReadValue();
+        return Camera.main.ScreenPointToRay(position);
     }
 
     public bool HasReceivedRotateLeftInput()
     {
-        return Input.GetKeyDown(KeyCode.Q) && InputControl.IsInputAllowed;
+        if (InputControl.IsInputAllowed)
+        {
+            if (isMobile) return rotateLeft;
+            else return rotateLeftAction.triggered;
+        }
+        return false;
     }
 
     public bool HasReceivedRotateRightInput()
     {
-        return Input.GetKeyDown(KeyCode.E) && InputControl.IsInputAllowed;
+        if (InputControl.IsInputAllowed) 
+        {
+            if (isMobile) return rotateRight;
+            else return rotateRightAction.triggered;
+        }
+        return false;
     }
 
     public bool HasReceivedFlipInput()
     {
-        return Input.GetKeyDown(KeyCode.W) && InputControl.IsInputAllowed;
+        if (InputControl.IsInputAllowed) 
+        {
+            if (isMobile) return flip;
+            else return flipAction.triggered;
+        }
+        return false;
+    }
+
+    private void HandleSwipe(SwipeDetection.SwipeDir direction)
+    {
+        switch (direction)
+        {
+            case SwipeDetection.SwipeDir.Left:
+                rotateLeft = true;
+                break;
+            case SwipeDetection.SwipeDir.Right:
+                rotateRight = true;
+                break;
+            case SwipeDetection.SwipeDir.Up:
+                flip = true;
+                break;
+            case SwipeDetection.SwipeDir.Down:
+                flip = true;
+                break;
+        }
+    }
+
+    private void HandleTap()
+    {
+        tap = true;
     }
 }

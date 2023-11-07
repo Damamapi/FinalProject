@@ -18,13 +18,14 @@ public class PlayerMovement : MonoBehaviour
     public Transform clickParticleParent;
 
     private PlayerPathFinder pathFinder;
-    private InputHandler inputHandler = new InputHandler();
+    private InputHandler inputHandler;
 
     private void Start()
     {
         RayCastDown();
         animator = modelAnimator.GetComponent<Animator>();
         pathFinder = gameObject.GetComponent<PlayerPathFinder>();
+        inputHandler = GameManager.Instance.inputHandler;
     }
 
     private void Update()
@@ -36,15 +37,15 @@ public class PlayerMovement : MonoBehaviour
 
         if (inputHandler.HasReceivedClickInput())
         {
-            Ray mouseRay = inputHandler.GetMouseRay(); RaycastHit mouseHit;
+            Ray ray = inputHandler.GetRay(); RaycastHit hit;
 
-            if (Physics.Raycast(mouseRay, out mouseHit))
+            if (Physics.Raycast(ray, out hit))
             {
-                if (mouseHit.transform.GetComponent<Walkable>() != null) 
+                if (hit.transform.GetComponent<Walkable>() != null) 
                 {
-                    clickedCube = mouseHit.transform;
-                    PlayParticles(mouseHit.transform.GetComponent<Walkable>().GetWalkPoint());
-                    AudioManager.instance.PlayRandomClick();
+                    clickedCube = hit.transform;
+                    PlayParticles(hit.transform.GetComponent<Walkable>().GetWalkPoint());
+                    AudioManager.Instance.PlayRandomClick();
 
                     DOTween.Kill(gameObject.transform);
                     pathFinder.finalPath.Clear();
@@ -52,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
                     FollowPath(pathFinder.finalPath);
                 }
             }
+            inputHandler.ResetFlags();
         }
     }
 
@@ -66,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
         if (InputControl.IsInputAllowed && cubeBelow.isGoal)
         {
             InputControl.DisableInput();
-            AudioManager.instance.ToggleSteps();
+            AudioManager.Instance.StopSteps();
             winScreen.gameObject.SetActive(true);
         }
     }
@@ -85,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Sequence s = DOTween.Sequence();
 
-        AudioManager.instance.ToggleSteps();
+        AudioManager.Instance.PlaySteps();
         animator.SetBool("Walking",true);
         InputControl.DisableInput();
 
@@ -124,7 +126,7 @@ public class PlayerMovement : MonoBehaviour
             t.GetComponent<Walkable>().previousBlock = null;
         }
         pathFinder.finalPath.Clear();
-        AudioManager.instance.ToggleSteps();
+        AudioManager.Instance.StopSteps();
         animator.SetBool("Walking", false);
         InputControl.EnableInput();
     }

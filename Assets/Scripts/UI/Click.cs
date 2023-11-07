@@ -3,20 +3,13 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.InputSystem;
 
 public class Click : MonoBehaviour
 {
 
     [SerializeField] Animator ClickToMove;
     public CanvasGroup clickText;
-    
-    void Update()
-    {
-        if (InputControl.IsInputAllowed && Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            FadeText();
-        }
-    }
 
     private void Start()
     {
@@ -29,11 +22,11 @@ public class Click : MonoBehaviour
         clickText.alpha = 0f;
         clickText.gameObject.SetActive(true);
         clickText.DOFade(1, 1f).SetEase(Ease.InCubic);
+        Invoke(nameof(FadeText), 3f);
     }
 
     private void FadeText()
     {
-        clickText.gameObject.SetActive(true);
         clickText.DOFade(0, 1f).SetEase(Ease.InCubic).OnComplete( () =>
         {
             gameObject.SetActive(false);

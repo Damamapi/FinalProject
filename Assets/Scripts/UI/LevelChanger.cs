@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class LevelChanger : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class LevelChanger : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             FadeToNextLevel();
         }

@@ -11,6 +11,8 @@ public class TutorialCollider : MonoBehaviour
     public CanvasGroup textRotate;
     public Transform player;
 
+    private InputHandler inputHandler;
+
     bool activated = false;
     bool loadingScene = true;
     bool world1 = false;
@@ -19,6 +21,7 @@ public class TutorialCollider : MonoBehaviour
     {
         world1 = SceneManager.GetActiveScene().name.Contains("World1");
         StartCoroutine(FinishLoading());
+        inputHandler = GameManager.Instance.inputHandler;
     }
 
     public void Update()
@@ -28,13 +31,13 @@ public class TutorialCollider : MonoBehaviour
         {
             ActivateText();
         }
-
-        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E))
+        
+        if (inputHandler.HasReceivedRotateLeftInput() || inputHandler.HasReceivedRotateRightInput())
         {
             if (world1) DeactivateText();
         }
 
-        if (Input.GetKeyDown(KeyCode.W) && !world1)
+        if (inputHandler.HasReceivedFlipInput() && !world1)
         {
             DeactivateText();
         }

@@ -7,13 +7,13 @@ public class Setting : MonoBehaviour
 {
     public void Play()
     {
-        AudioManager.instance.PlaySFX("hihatOpen");
+        AudioManager.Instance.PlaySFX("hihatOpen");
         SceneManager.LoadScene("Basic Level");
     }
 
     public void Return()
     {
-        AudioManager.instance.PlaySFX("hihatClosed");
+        AudioManager.Instance.PlaySFX("hihatClosed");
         SceneManager.LoadScene("MainMenu");
     }
 }

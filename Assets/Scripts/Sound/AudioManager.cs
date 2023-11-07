@@ -6,9 +6,8 @@ using UnityEngine.SceneManagement;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : SingletonPersistent<AudioManager>
 {
-    public static AudioManager instance;
     public Sound[] musicSounds, sfxSounds, clickSounds;
 
     [Space]
@@ -20,19 +19,6 @@ public class AudioManager : MonoBehaviour
     {
         public string name;
         public AudioClip clip;
-    }
-
-    void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
     }
 
     void Start()
@@ -105,13 +91,17 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void ToggleSteps()
+    public void PlaySteps()
     {
         if (!stepsSource.isPlaying)
         {
             stepsSource.Play();
         }
-        else
+    }
+
+    public void StopSteps()
+    {
+        if (stepsSource.isPlaying)
         {
             StartCoroutine(FadeOut(stepsSource));
         }

@@ -25,7 +25,7 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        AudioManager.instance.PlaySFX("hihatOpen");
+        AudioManager.Instance.PlaySFX("hihatOpen");
         SceneManager.LoadScene("World1 - 1");
     }
 
@@ -53,37 +53,37 @@ public class MainMenu : MonoBehaviour
 
     public void Settings()
     {
-        AudioManager.instance.PlaySFX("hihatOpen");
+        AudioManager.Instance.PlaySFX("hihatOpen");
         StartCoroutine(FadeOutThenIn(mainMenu, settingsGroup));
     }
 
     public void BackToMainMenu()
     {
-        AudioManager.instance.PlaySFX("hihatClosed");
+        AudioManager.Instance.PlaySFX("hihatClosed");
         StartCoroutine(FadeOutThenIn(settingsGroup, mainMenu));
     }
 
     public void BackToMainFromCredits()
     {
-        AudioManager.instance.PlaySFX("hihatClosed");
+        AudioManager.Instance.PlaySFX("hihatClosed");
         StartCoroutine(FadeOutThenIn(credits, mainMenu));
     }
 
     public void Credits()
     {
-        AudioManager.instance.PlaySFX("hihatOpen");
+        AudioManager.Instance.PlaySFX("hihatOpen");
         StartCoroutine(FadeOutThenIn(mainMenu, credits));
     }
 
     public void MuteMusic()
     {
-        AudioManager.instance.PlaySFX("hihatOpen");
-        AudioManager.instance.ToggleMusic();
+        AudioManager.Instance.PlaySFX("hihatOpen");
+        AudioManager.Instance.ToggleMusic();
     }
 
     public void MuteSFX()
     {
-        AudioManager.instance.ToggleSFX();
-        AudioManager.instance.PlaySFX("hihatOpen");
+        AudioManager.Instance.ToggleSFX();
+        AudioManager.Instance.PlaySFX("hihatOpen");
     }
 }

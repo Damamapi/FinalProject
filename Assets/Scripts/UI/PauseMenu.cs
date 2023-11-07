@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
@@ -12,7 +13,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        if (InputControl.IsInputAllowed && Input.GetKeyDown(KeyCode.Escape))
+        if (InputControl.IsInputAllowed && Keyboard.current.escapeKey.wasPressedThisFrame) 
         {
             if (GamePaused) Resume();
             else PauseUI();

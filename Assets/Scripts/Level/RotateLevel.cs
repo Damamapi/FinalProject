@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class RotateLevel : MonoBehaviour
 {
 
-    private InputHandler inputHandler = new InputHandler();
+    private InputHandler inputHandler;
 
     public float rotationDuration = 0.5f;
     private int orientationIndex = 2;
@@ -23,6 +23,7 @@ public class RotateLevel : MonoBehaviour
     private void Start()
     {
         world2 = SceneManager.GetActiveScene().name.Contains("World2");
+        inputHandler = GameManager.Instance.inputHandler;
     }
 
     void Update()
@@ -32,19 +33,20 @@ public class RotateLevel : MonoBehaviour
         if (inputHandler.HasReceivedRotateLeftInput())
         {
             RotateY(-1);
-            AudioManager.instance.PlaySFX("rotateLeft");
+            AudioManager.Instance.PlaySFX("rotateLeft");
         }
         else if (inputHandler.HasReceivedRotateRightInput())
         {
             RotateY(1);
-            AudioManager.instance.PlaySFX("rotateRight");
+            AudioManager.Instance.PlaySFX("rotateRight");
         }
 
-        if (inputHandler.HasReceivedFlipInput())
+        if (world2 && inputHandler.HasReceivedFlipInput())
         {
             RotateVertical();
-            AudioManager.instance.PlaySFX("flip");
+            AudioManager.Instance.PlaySFX("flip");
         }
+        inputHandler.ResetFlags();
     }
 
     void RotateY(int direction)
