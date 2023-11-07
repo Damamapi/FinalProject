@@ -54,6 +54,7 @@ public class InputHandler
 
     public Ray GetRay()
     {
+        // To test on Editor with Simulation add to the next line: || true
         Vector2 position = Application.isMobilePlatform
             ? Touchscreen.current.primaryTouch.position.ReadValue()
             : Mouse.current.position.ReadValue();
