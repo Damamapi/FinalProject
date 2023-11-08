@@ -69,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
         {
             InputControl.DisableInput();
             AudioManager.Instance.StopSteps();
+            AudioManager.Instance.PlaySFX("levelComplete");
             winScreen.gameObject.SetActive(true);
         }
     }

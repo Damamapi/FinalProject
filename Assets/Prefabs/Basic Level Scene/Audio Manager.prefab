@@ -61,10 +61,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: e9f86ab4200954e43a8f97c0617a484d, type: 3}
   - name: rotateRight
     clip: {fileID: 8300000, guid: c7eb248761771de4984059e90fd7badb, type: 3}
-  - name: hihatOpen
-    clip: {fileID: 8300000, guid: 2e48a889fc9f2d24482bc090502cb9c0, type: 3}
-  - name: hihatClosed
-    clip: {fileID: 8300000, guid: a9f4fb37280798844a6b6017eddf8913, type: 3}
+  - name: uiSelect
+    clip: {fileID: 8300000, guid: b0ba06c7d7410a8489544b3a145b3370, type: 3}
+  - name: levelComplete
+    clip: {fileID: 8300000, guid: ef24737d9ecff5d44a7c1cf82941ce1b, type: 3}
   clickSounds:
   - name: click1
     clip: {fileID: 8300000, guid: bb2a4f0e9ea54ab43acdbdf2550824db, type: 3}

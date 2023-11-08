@@ -9,13 +9,13 @@ public class Win : MonoBehaviour
     public string nextLevel;
     public void NextLevel()
     {
-        AudioManager.Instance.PlaySFX("hihatOpen");
+        AudioManager.Instance.PlaySFX("uiSelect");
         SceneManager.LoadScene(nextLevel);
     }
 
     public void Restart()
     {
-        AudioManager.Instance.PlaySFX("hihatClosed");
+        AudioManager.Instance.PlaySFX("uiSelect");
         SceneManager.LoadScene(currentLevel);
 
     }
