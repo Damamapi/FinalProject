@@ -11,12 +11,12 @@ public class GameManager : SingletonPersistent<GameManager>
     private SwipeDetection swipeDetection;
     private InputManager inputManager;
 
-    private void Start()
+    public override void Awake()
     {
+        base.Awake();
         // isMobile = true;
         // Up for desktop testing, down for building
         isMobile = Application.isMobilePlatform;
-
 
         inputHandler = new InputHandler();
         inputManager = GetComponent<InputManager>();
