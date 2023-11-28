@@ -23,7 +23,7 @@ public class RotateLevel : MonoBehaviour
     private void Start()
     {
         world2 = SceneManager.GetActiveScene().name.Contains("World2");
-        inputHandler = GameManager.Instance.inputHandler;
+        inputHandler = FindObjectOfType<GameManager>().inputHandler;
     }
 
     void Update()
@@ -46,7 +46,7 @@ public class RotateLevel : MonoBehaviour
             RotateVertical();
             AudioManager.Instance.PlaySFX("flip");
         }
-        inputHandler.ResetFlags();
+        inputHandler.ResetRotation();
     }
 
     void RotateY(int direction)

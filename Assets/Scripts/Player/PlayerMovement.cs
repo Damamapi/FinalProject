@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
         RayCastDown();
         animator = modelAnimator.GetComponent<Animator>();
         pathFinder = gameObject.GetComponent<PlayerPathFinder>();
-        inputHandler = GameManager.Instance.inputHandler;
+        inputHandler = FindObjectOfType<GameManager>().inputHandler;
     }
 
     private void Update()
@@ -38,7 +38,6 @@ public class PlayerMovement : MonoBehaviour
         if (inputHandler.HasReceivedClickInput())
         {
             Ray ray = inputHandler.GetRay(); RaycastHit hit;
-
             if (Physics.Raycast(ray, out hit))
             {
                 if (hit.transform.GetComponent<Walkable>() != null) 
@@ -50,10 +49,11 @@ public class PlayerMovement : MonoBehaviour
                     DOTween.Kill(gameObject.transform);
                     pathFinder.finalPath.Clear();
                     pathFinder.FindPath(currentCube, clickedCube);
+                    //Debug.Log($"PlayerMovement FollowPath {pathFinder.finalPath[0]} {pathFinder.finalPath[pathFinder.finalPath.Count]}");
                     FollowPath(pathFinder.finalPath);
                 }
             }
-            inputHandler.ResetFlags();
+            inputHandler.ResetTap();
         }
     }
 

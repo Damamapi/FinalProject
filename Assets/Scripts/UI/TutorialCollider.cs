@@ -21,7 +21,7 @@ public class TutorialCollider : MonoBehaviour
     {
         world1 = SceneManager.GetActiveScene().name.Contains("World1");
         StartCoroutine(FinishLoading());
-        inputHandler = GameManager.Instance.inputHandler;
+        inputHandler = FindObjectOfType<GameManager>().inputHandler;
     }
 
     public void Update()

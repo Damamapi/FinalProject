@@ -34,18 +34,24 @@ public class InputManager : Singleton<InputManager>
 
     private void Start()
     {
-        touchControls.Touch.PrimaryContact.started += ctx => StartTouchPrimary(ctx);
-        touchControls.Touch.PrimaryContact.canceled += ctx => EndTouchPrimary(ctx);
+        touchControls.Touch.PrimaryContact.started += StartTouchPrimary;
+        touchControls.Touch.PrimaryContact.canceled += EndTouchPrimary;
+    }
+
+    private void OnDestroy()
+    {
+        touchControls.Touch.PrimaryContact.started -= StartTouchPrimary;
+        touchControls.Touch.PrimaryContact.canceled -= EndTouchPrimary;
     }
 
     void StartTouchPrimary( InputAction.CallbackContext ctx )
     {
-        if (OnStartTouch != null) OnStartTouch(Utils.ScreenToWorld(Camera.main, touchControls.Touch.PrimaryPosition.ReadValue<Vector2>()), (float)ctx.startTime);
+        OnStartTouch?.Invoke(Utils.ScreenToWorld(Camera.main, touchControls.Touch.PrimaryPosition.ReadValue<Vector2>()), (float)ctx.startTime);
     }
 
     void EndTouchPrimary(InputAction.CallbackContext ctx)
     {
-        if (OnEndTouch != null) OnEndTouch(Utils.ScreenToWorld(Camera.main, touchControls.Touch.PrimaryPosition.ReadValue<Vector2>()), (float)ctx.time);
+        OnEndTouch?.Invoke(Utils.ScreenToWorld(Camera.main, touchControls.Touch.PrimaryPosition.ReadValue<Vector2>()), (float)ctx.time);
     }
 
     public Vector2 PrimaryPosition()

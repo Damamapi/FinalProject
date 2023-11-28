@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;
 
-public class GameManager : SingletonPersistent<GameManager>
+public class GameManager : MonoBehaviour
 {
     public bool isMobile;
 
@@ -11,12 +11,12 @@ public class GameManager : SingletonPersistent<GameManager>
     private SwipeDetection swipeDetection;
     private InputManager inputManager;
 
-    public override void Awake()
+    public void Awake()
     {
-        base.Awake();
-        isMobile = true;
+        
+        // isMobile = true;
         // Up for desktop testing, down for building
-        // isMobile = Application.isMobilePlatform;
+        isMobile = Application.isMobilePlatform;
 
         inputHandler = new InputHandler();
         inputManager = GetComponent<InputManager>();

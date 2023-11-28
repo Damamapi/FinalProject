@@ -11,6 +11,8 @@ public class InputHandler
     private InputAction rotateRightAction;
     private InputAction flipAction;
 
+    private SwipeDetection swipeDetection;
+
     private bool isMobile = false;
 
     // flags for mobile rotation
@@ -30,24 +32,43 @@ public class InputHandler
     // For mobile
     public void Init(SwipeDetection swipeDetection)
     {
+        this.swipeDetection = swipeDetection;
         isMobile = true;
         touchControls = new TouchControls();
         touchControls.Touch.Enable();
-        swipeDetection.OnSwipe += HandleSwipe;
-        swipeDetection.OnTap += HandleTap;
+        this.swipeDetection.OnSwipe += HandleSwipe;
+        this.swipeDetection.OnTap += HandleTap;
     }
 
-    public void ResetFlags()
+    public void OnDestroy()
     {
-        rotateLeft = rotateRight = flip = tap = false;
+        swipeDetection.OnSwipe -= HandleSwipe;
+        swipeDetection.OnTap -= HandleTap;
+    }
+
+    public void ResetRotation()
+    {
+        //Debug.Log($"{nameof(InputHandler)} ResetFlags rotateRight = flip = tap = false");
+        rotateLeft = rotateRight = flip = false;
+    }
+
+    public void ResetTap()
+    {
+        tap = false;
     }
 
     public bool HasReceivedClickInput()
     {
         if (InputControl.IsInputAllowed)
         {
-            if (isMobile) return tap;
-            else return clickAction.triggered;
+            if (isMobile)
+            {
+                return tap;
+            }
+            else
+            {
+                return clickAction.triggered;
+            }
         }
         return false;
     }
@@ -55,7 +76,7 @@ public class InputHandler
     public Ray GetRay()
     {
         // To test on Editor with Simulation add to the next line: || true
-        Vector2 position = Application.isMobilePlatform || true
+        Vector2 position = Application.isMobilePlatform
             ? Touchscreen.current.primaryTouch.position.ReadValue()
             : Mouse.current.position.ReadValue();
         return Camera.main.ScreenPointToRay(position);
