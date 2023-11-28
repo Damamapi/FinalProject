@@ -14,9 +14,9 @@ public class GameManager : SingletonPersistent<GameManager>
     public override void Awake()
     {
         base.Awake();
-        // isMobile = true;
+        isMobile = true;
         // Up for desktop testing, down for building
-        isMobile = Application.isMobilePlatform;
+        // isMobile = Application.isMobilePlatform;
 
         inputHandler = new InputHandler();
         inputManager = GetComponent<InputManager>();
